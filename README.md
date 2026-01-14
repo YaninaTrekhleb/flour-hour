@@ -12,7 +12,6 @@ Pick a recipe, set your start time or when you want to eat, and Flour Hour calcu
 - **Flexible scheduling** - Set your start time or work backwards from when you want to bake
 - **Step-by-step timing** - Every step calculated to the minute
 - **Sourdough & yeasted breads** - Classic loaves, focaccia, bagels, brioche, and more
-- **Clean interface** - Multiple themes to choose from
 
 ## Recipes Included
 
