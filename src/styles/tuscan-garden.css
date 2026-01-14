@@ -1,0 +1,897 @@
+/* Tuscan Garden Theme - Earthy & Fresh */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wdth,wght@62.5,700&family=DM+Sans:wght@400;500;600&family=DM+Serif+Display:ital@0;1&display=swap');
+
+/*
+  NEW PALETTE
+  Slate Grey: #708090 (accents)
+  Bone: #f3f0e9 (cards, secondary bg)
+  Porcelain: #FDFBF7 (background)
+  Charcoal Blue: #2C3E50 (primary, text)
+*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #FDFBF7;
+  color: #2C3E50;
+  line-height: 1.5;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  cursor: url('/whisk-cursor.svg') 2 28, auto;
+}
+
+/* Pointer cursor for interactive elements */
+button,
+select,
+input[type="time"],
+.recipe-dropdown,
+a {
+  cursor: url('/whisk-cursor.svg') 2 28, pointer;
+}
+
+/* Standard pointer for small clickable icons - easier to hit targets */
+.ingredients-toggle-icon,
+.tools-toggle-icon,
+.expand-icon,
+.ingredients-toggle,
+.tools-toggle {
+  cursor: pointer !important;
+}
+
+/* Hover state - terracotta whisk */
+button:hover,
+select:hover,
+input[type="time"]:hover,
+.recipe-dropdown:hover,
+a:hover,
+.step-item:hover,
+.btn-add-step:hover {
+  cursor: url('/whisk-cursor-hover.svg') 2 30, pointer;
+}
+
+.app {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 56px 24px;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.app-header h1 {
+  font-family: 'Noto Serif Display', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  font-stretch: extra-condensed;
+  color: #2C3E50;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.total-time {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.2rem;
+  color: #708090;
+  letter-spacing: 0.5px;
+}
+
+.coffee-link {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #708090;
+  text-decoration: none;
+  border: 1.5px solid #D5CABB;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+}
+
+.coffee-link:hover {
+  background: #f3f0e9;
+  border-color: #708090;
+  color: #2C3E50;
+}
+
+/* Recipe Selector */
+.recipe-selector {
+  background: #f3f0e9;
+  padding: 16px 20px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 12px rgba(44, 62, 80, 0.06);
+}
+
+.recipe-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.recipe-dropdown {
+  flex: 1;
+  min-width: 140px;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  font-weight: 500;
+  border: 2px solid #D5CABB;
+  border-radius: 14px;
+  background: #FDFBF7;
+  color: #2C3E50;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.recipe-dropdown:focus {
+  outline: none;
+  border-color: #2C3E50;
+}
+
+.recipe-dropdown optgroup {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #708090;
+  background: #f3f0e9;
+  padding: 8px 0;
+}
+
+.recipe-dropdown option {
+  font-weight: 400;
+  color: #2C3E50;
+  padding: 8px 12px;
+  background: #FDFBF7;
+}
+
+/* Recipe Title */
+.recipe-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.6rem;
+  color: #2C3E50;
+  text-align: center;
+  margin: 24px 0 4px 0;
+}
+
+.recipe-type {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: #708090;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+}
+
+.save-dialog {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.recipe-name-input {
+  flex: 1;
+  min-width: 140px;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  font-weight: 500;
+  border: 2px solid #D5CABB;
+  border-radius: 14px;
+  background: #FDFBF7;
+}
+
+.recipe-name-input:focus {
+  outline: none;
+  border-color: #2C3E50;
+}
+
+/* Time Input */
+.time-input-container {
+  background: #f3f0e9;
+  padding: 24px;
+  border-radius: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 12px rgba(44, 62, 80, 0.06);
+}
+
+.anchor-type-toggle {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 24px;
+  background: #D5CABB;
+  padding: 6px;
+  border-radius: 16px;
+}
+
+.anchor-btn {
+  flex: 1;
+  padding: 14px 20px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  color: #2C3E50;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  opacity: 0.7;
+}
+
+.anchor-btn.active {
+  background: #FDFBF7;
+  color: #2C3E50;
+  opacity: 1;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.1);
+}
+
+.anchor-btn:hover:not(.active) {
+  opacity: 1;
+}
+
+.time-picker {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.time-picker label {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.4rem;
+  color: #2C3E50;
+}
+
+.time-input {
+  padding: 14px 18px;
+  font-size: 1.2rem;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  border: 2px solid #D5CABB;
+  border-radius: 14px;
+  background: #FDFBF7;
+  color: #2C3E50;
+}
+
+.time-input:focus {
+  outline: none;
+  border-color: #2C3E50;
+}
+
+/* Step List */
+.step-list {
+  background: #f3f0e9;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(44, 62, 80, 0.06);
+}
+
+.step-header {
+  display: grid;
+  grid-template-columns: 110px 1fr 150px 130px;
+  padding: 16px 28px;
+  background: linear-gradient(135deg, #2C3E50 0%, #3D5166 100%);
+  color: #FDFBF7;
+  font-weight: 600;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.step-item {
+  display: grid;
+  grid-template-columns: 110px 1fr 150px 130px;
+  padding: 20px 28px;
+  align-items: center;
+  transition: all 0.2s ease;
+  border-bottom: 1.5px solid #D5CABB;
+}
+
+.step-item:last-child {
+  border-bottom: none;
+}
+
+.step-item:hover {
+  background: #FDFBF7;
+}
+
+.step-item.editing {
+  grid-template-columns: 110px 1fr 180px auto;
+  background: #f3f0e9;
+}
+
+.step-time {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 600;
+  color: #2C3E50;
+  font-size: 1.1rem;
+}
+
+.step-name-wrapper {
+  cursor: pointer;
+  min-width: 0;
+}
+
+.step-name {
+  font-size: 0.95rem;
+  color: #2C3E50;
+  font-weight: 500;
+}
+
+.expand-icon {
+  font-size: 0.8rem;
+  color: #708090;
+  font-weight: 600;
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #D5CABB;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.step-details {
+  font-size: 0.85rem;
+  color: #708090;
+  line-height: 1.5;
+  margin-top: 8px;
+  padding: 12px;
+  background: #FDFBF7;
+  border-radius: 8px;
+  border-left: 3px solid #708090;
+}
+
+.step-item.expanded {
+  align-items: flex-start;
+}
+
+.step-item.expanded .step-time {
+  padding-top: 2px;
+}
+
+.step-duration {
+  font-family: 'DM Serif Display', serif;
+  color: #708090;
+  font-size: 1.1rem;
+  padding-right: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.step-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+/* Ready step - slate accent */
+.ready-step {
+  background: linear-gradient(135deg, #D5DDE5 0%, #C5CED8 100%);
+  border-bottom: none;
+}
+
+.ready-step:hover {
+  background: linear-gradient(135deg, #E0E8F0 0%, #D5DDE5 100%);
+}
+
+.ready-time {
+  color: #2C3E50 !important;
+  font-size: 1.1rem !important;
+}
+
+.ready-name {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  color: #2C3E50;
+  font-weight: 400;
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+
+/* Buttons */
+button {
+  padding: 10px 16px;
+  font-size: 0.85rem;
+  font-family: inherit;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-edit {
+  background: #D5CABB;
+  color: #2C3E50;
+}
+
+.btn-edit:hover {
+  background: #C8BAAA;
+  color: #2C3E50;
+}
+
+.btn-delete, .btn-delete-recipe {
+  background: #F5EBEB;
+  color: #A65D5D;
+}
+
+.btn-delete:hover, .btn-delete-recipe:hover {
+  background: #EEDEDE;
+}
+
+.btn-save, .btn-save-recipe {
+  background: linear-gradient(135deg, #2C3E50 0%, #3D5166 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.3);
+}
+
+.btn-save:hover, .btn-save-recipe:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(44, 62, 80, 0.4);
+}
+
+.btn-cancel {
+  background: #D5CABB;
+  color: #708090;
+}
+
+.btn-cancel:hover {
+  background: #C8BAAA;
+}
+
+.btn-add-step {
+  width: 100%;
+  padding: 18px;
+  background: #F5F2ED;
+  color: #708090;
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-top: 1.5px solid #D5CABB;
+}
+
+.btn-add-step:hover {
+  color: #2C3E50;
+  background: #FDFBF7;
+}
+
+/* Form inputs */
+.step-name-input {
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  font-weight: 500;
+  border: 2px solid #D5CABB;
+  border-radius: 12px;
+  width: 100%;
+  background: white;
+}
+
+.step-name-input:focus {
+  outline: none;
+  border-color: #2C3E50;
+}
+
+.duration-inputs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.duration-input {
+  width: 54px;
+  padding: 12px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  font-weight: 600;
+  border: 2px solid #D5CABB;
+  border-radius: 10px;
+  text-align: center;
+  background: white;
+}
+
+.duration-input:focus {
+  outline: none;
+  border-color: #2C3E50;
+}
+
+.duration-inputs span {
+  font-family: 'DM Serif Display', serif;
+  color: #708090;
+  font-size: 1rem;
+}
+
+/* Add step form */
+.add-step-form {
+  display: flex;
+  gap: 12px;
+  padding: 20px 24px;
+  background: #F5F2ED;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.add-step-form .step-name-input {
+  flex: 1;
+  min-width: 140px;
+}
+
+.add-form-actions {
+  display: flex;
+  gap: 6px;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+  .app { padding: 32px 16px; }
+  .app-header { margin-bottom: 32px; }
+  .app-header h1 { font-size: 1.8rem; letter-spacing: 1px; }
+  .total-time { font-size: 1rem; }
+
+  .recipe-title { font-size: 1.3rem; margin: 18px 0 4px 0; }
+  .recipe-type { font-size: 0.8rem; margin-bottom: 16px; }
+
+  .step-header { display: none; }
+
+  .step-item, .step-item.editing, .step-item.expanded {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 16px 18px;
+  }
+
+  .step-time {
+    font-size: 1.4rem;
+    order: 1;
+  }
+
+  .step-name-wrapper {
+    order: 2;
+  }
+
+  .step-name {
+    font-size: 1rem;
+  }
+
+  .step-duration {
+    order: 3;
+    font-size: 0.95rem;
+    padding-right: 0;
+    color: #708090;
+  }
+
+  .step-actions {
+    order: 4;
+    justify-content: flex-start;
+    margin-top: 4px;
+  }
+
+  .step-details {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .anchor-type-toggle { flex-direction: column; gap: 4px; }
+  .anchor-btn { padding: 12px 16px; }
+
+  .recipe-selector { padding: 14px 16px; border-radius: 16px; }
+  .recipe-controls { flex-direction: column; align-items: stretch; }
+
+  .time-input-container { padding: 18px 16px; border-radius: 18px; }
+  .time-picker { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .time-picker label { font-size: 1.2rem; }
+
+  .step-list { border-radius: 20px; }
+
+  .add-step-form { flex-direction: column; align-items: stretch; padding: 16px 18px; }
+
+  .btn-edit, .btn-delete { padding: 8px 14px; font-size: 0.8rem; }
+  .btn-add-step { padding: 14px; font-size: 1rem; }
+}
+
+/* Small phones */
+@media (max-width: 380px) {
+  .app { padding: 24px 12px; }
+  .app-header h1 { font-size: 1.5rem; }
+  .step-item { padding: 14px 14px; }
+  .step-time { font-size: 1.2rem; }
+}
+
+/* Ingredients Section */
+.ingredients-section {
+  background: #f3f0e9;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 12px rgba(44, 62, 80, 0.06);
+}
+
+.ingredients-toggle {
+  width: 100%;
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  border: none;
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.1rem;
+  color: #2C3E50;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.ingredients-toggle:hover {
+  background: #FDFBF7;
+}
+
+.ingredients-toggle-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #D5CABB;
+  border-radius: 50%;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #708090;
+}
+
+.ingredients-list {
+  padding: 0 24px 20px;
+  margin: 0;
+  list-style: none;
+}
+
+.ingredient-item {
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  color: #2C3E50;
+  border-bottom: 1px solid #D5CABB;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ingredient-item:last-child {
+  border-bottom: none;
+}
+
+.ingredient-item::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: #708090;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Mobile responsive for ingredients */
+@media (max-width: 600px) {
+  .ingredients-toggle { padding: 14px 18px; font-size: 1rem; }
+  .ingredients-list { padding: 0 18px 16px; }
+  .ingredient-item { padding: 8px 12px; font-size: 0.9rem; }
+}
+
+/* Tools Section */
+.tools-section {
+  margin-top: 24px;
+  background: #f3f0e9;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(44, 62, 80, 0.06);
+}
+
+.tools-toggle {
+  width: 100%;
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.1rem;
+  color: #2C3E50;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.tools-toggle:hover {
+  background: #FDFBF7;
+}
+
+.tools-toggle-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #D5CABB;
+  border-radius: 50%;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #708090;
+}
+
+.tools-list {
+  padding: 0 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tool-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 18px;
+  background: #FDFBF7;
+  border-radius: 12px;
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.tool-item:hover {
+  border-color: #D5CABB;
+  transform: translateY(-1px);
+}
+
+.tool-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #2C3E50;
+}
+
+.tool-description {
+  font-size: 0.85rem;
+  color: #708090;
+  line-height: 1.4;
+}
+
+.affiliate-disclosure {
+  font-size: 0.75rem;
+  color: #708090;
+  text-align: center;
+  margin-top: 8px;
+  font-style: italic;
+}
+
+/* Footer */
+.app-footer {
+  margin-top: 48px;
+  padding: 32px 0;
+  text-align: center;
+  border-top: 1px solid #D5CABB;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.social-link {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f0e9;
+  border-radius: 50%;
+  color: #708090;
+  transition: all 0.2s ease;
+}
+
+.social-link:hover {
+  background: #2C3E50;
+  color: #FDFBF7;
+  transform: translateY(-2px);
+}
+
+.footer-text {
+  font-family: 'DM Serif Display', serif;
+  font-size: 0.9rem;
+  color: #708090;
+  font-style: italic;
+}
+
+.footer-link {
+  color: #2C3E50;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #708090;
+  text-decoration: underline;
+}
+
+/* Mobile responsive for new components */
+@media (max-width: 600px) {
+  .tools-toggle { padding: 14px 18px; font-size: 1rem; }
+  .tools-list { padding: 0 18px 16px; }
+  .tool-item { padding: 12px 14px; }
+
+  .app-footer { margin-top: 32px; padding: 24px 0; }
+  .social-links { gap: 12px; flex-wrap: wrap; }
+  .social-link { width: 40px; height: 40px; }
+
+  /* Larger toggle icons for easier tapping on mobile */
+  .ingredients-toggle-icon,
+  .tools-toggle-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+  }
+}
+
+/* Safe area padding for iPhones with notch/home indicator */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .app {
+    padding-bottom: calc(24px + env(safe-area-inset-bottom));
+  }
+}
+
+/* Smooth expand/collapse animations */
+.ingredients-list,
+.tools-list {
+  animation: slideDown 0.25s ease-out;
+}
+
+.step-details {
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Active state feedback for touch devices */
+@media (hover: none) {
+  .tool-item:active,
+  .social-link:active,
+  .coffee-link:active {
+    transform: scale(0.97);
+    opacity: 0.9;
+  }
+
+  .ingredients-toggle:active,
+  .tools-toggle:active {
+    background: #E8E4DB;
+  }
+
+  .btn-edit:active,
+  .btn-delete:active,
+  .btn-save:active {
+    transform: scale(0.95);
+  }
+}

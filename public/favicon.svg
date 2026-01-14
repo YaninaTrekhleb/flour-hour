@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Bread loaf shape -->
+  <ellipse cx="50" cy="55" rx="40" ry="30" fill="#D4A574"/>
+  <!-- Bread top crust highlight -->
+  <ellipse cx="50" cy="48" rx="35" ry="22" fill="#E8C097"/>
+  <!-- Score marks on bread -->
+  <path d="M30 45 Q40 40 50 45" stroke="#C69C6D" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M50 45 Q60 40 70 45" stroke="#C69C6D" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- Clock hands to represent "Hour" -->
+  <circle cx="50" cy="50" r="8" fill="#2C3E50" opacity="0.9"/>
+  <line x1="50" y1="50" x2="50" y2="44" stroke="#FDFBF7" stroke-width="2" stroke-linecap="round"/>
+  <line x1="50" y1="50" x2="54" y2="52" stroke="#FDFBF7" stroke-width="2" stroke-linecap="round"/>
+</svg>
