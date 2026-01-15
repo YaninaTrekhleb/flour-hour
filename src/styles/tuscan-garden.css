@@ -22,7 +22,7 @@ body {
   line-height: 1.5;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
-  cursor: url('/whisk-cursor.svg') 2 28, auto;
+  cursor: url('/flour-hour/whisk-cursor.svg') 2 28, auto;
 }
 
 /* Pointer cursor for interactive elements */
@@ -31,7 +31,7 @@ select,
 input[type="time"],
 .recipe-dropdown,
 a {
-  cursor: url('/whisk-cursor.svg') 2 28, pointer;
+  cursor: url('/flour-hour/whisk-cursor.svg') 2 28, pointer;
 }
 
 /* Standard pointer for small clickable icons - easier to hit targets */
@@ -51,7 +51,7 @@ input[type="time"]:hover,
 a:hover,
 .step-item:hover,
 .btn-add-step:hover {
-  cursor: url('/whisk-cursor-hover.svg') 2 30, pointer;
+  cursor: url('/flour-hour/whisk-cursor-hover.svg') 2 30, pointer;
 }
 
 .app {

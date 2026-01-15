@@ -37,7 +37,7 @@ function App() {
     // Add theme stylesheet
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = `/src/styles/tuscan-garden.css`;
+    link.href = `${import.meta.env.BASE_URL}src/styles/tuscan-garden.css`;
     link.setAttribute('data-theme', 'tuscan-garden');
     document.head.appendChild(link);
   }, []);
